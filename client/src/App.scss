@@ -1,0 +1,55 @@
+@font-face {
+  font-family: open-sans;
+  src: url(./assets/fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: open-sans-bold;
+  src: url(./assets/fonts/OpenSans-Bold.ttf);
+}
+
+.open-sans {
+  font-family: open-sans;
+}
+
+.open-sans-bold {
+  font-family: open-sans-bold;
+}
+
+body {
+  margin: 0;
+  font-family: open-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: open-sans, source-code-pro, Menlo, Monaco, Consolas,
+    'Courier New', monospace;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  font-family: open-sans-bold;
+
+  .modal-body {
+    font-family: open-sans;
+
+    .form-label {
+      font-family: open-sans-bold;
+    }
+
+    .date-picker {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.bg-dark {
+  font-family: open-sans-bold;
+}
