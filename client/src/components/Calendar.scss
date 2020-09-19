@@ -1,28 +1,11 @@
 $main-color: rgb(52, 58, 64);
-$secondary-color: rgb(244, 67, 54);
 $event-color: #666;
 $border-color: #eee;
 $cell-hover-color: #f9f9f9;
 $selected-cell-color: #fff0f8;
 $disabled-cell-color: #ccc;
-
-// @font-face {
-//   font-family: open-sans;
-//   src: url(../assets/fonts/OpenSans-Regular.ttf);
-// }
-
-// @font-face {
-//   font-family: open-sans-bold;
-//   src: url(../assets/fonts/OpenSans-Bold.ttf);
-// }
-
-// .open-sans {
-//   font-family: open-sans;
-// }
-
-// .open-sans-bold {
-//   font-family: open-sans-bold;
-// }
+$primary-color: #333;
+$secondary-color: aliceblue;
 
 * {
   box-sizing: border-box;
@@ -43,20 +26,23 @@ $disabled-cell-color: #ccc;
 
 .calendar {
   font-family: open-sans-bold;
-  background: white;
-  border: 1px solid $border-color;
+  background: #333;
 
   .header {
     font-size: 1.15em;
-    padding: 1.3em;
-    border-bottom: 1px solid $border-color;
-    background-color: $main-color;
+    height: 50px;
+    border-bottom: 1px solid lighten($primary-color, 25%);
+    background-color: $primary-color;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .grow {
       transition: 0.3s;
       font-size: 1.875em;
       color: $secondary-color;
+      width: 100px;
 
       &:hover {
         transform: scale(1.5);
@@ -68,7 +54,8 @@ $disabled-cell-color: #ccc;
   .days {
     text-transform: uppercase;
     padding: 0.75em 0;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid lighten($primary-color, 25%);
+    color: $secondary-color;
   }
 
   .body {
@@ -78,23 +65,38 @@ $disabled-cell-color: #ccc;
     }
 
     .cell {
-      height: 9em;
-      border-right: 1px solid $border-color;
+      height: calc((100vh - 103px) / 5);
+
+      min-width: (100% / 7);
+      border-right: 1px solid lighten($primary-color, 25%);
       overflow: hidden;
-      cursor: pointer;
-      transition: 0.5s ease-out;
+      // cursor: pointer;
+      // transition: 0.5s ease-out;
+      display: flex;
+      justify-content: center;
 
       .number {
-        display: flex;
-        justify-content: right;
         font-family: open-sans-bold;
-        font-size: 14px;
-        margin-top: 0.75em;
-        margin-right: 0.15em;
+        font-size: 12px;
+        color: $secondary-color;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-top: 3px;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+
+        &:hover {
+          background-color: lighten($primary-color, 1%);
+          border-radius: 50%;
+        }
       }
 
       &:hover {
-        background: $cell-hover-color;
+        background: darken($primary-color, 1%);
         transition: 0.5s ease-out;
       }
 
@@ -104,7 +106,7 @@ $disabled-cell-color: #ccc;
     }
 
     .row {
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid lighten($primary-color, 25%);
 
       &:last-child {
         border-bottom: none;
@@ -112,11 +114,12 @@ $disabled-cell-color: #ccc;
     }
 
     .selected {
-      background-color: $selected-cell-color;
+      background-color: darken($primary-color, 1.5%);
     }
 
     .disabled {
-      color: $disabled-cell-color;
+      color: $primary-color;
+      opacity: 0.25;
       pointer-events: none;
     }
 
@@ -173,4 +176,8 @@ $disabled-cell-color: #ccc;
       }
     }
   }
+}
+
+.header-row {
+  width: 800px;
 }

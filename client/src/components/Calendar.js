@@ -70,7 +70,7 @@ const Calendar = (props) => {
             </div>
           }
         />
-        <Row>
+        <Row className='header-row'>
           <Col className='text-right'>
             <IoMdArrowDropleft className='grow' onClick={prevMonth} />
           </Col>
@@ -134,10 +134,18 @@ const Calendar = (props) => {
                 : ''
             }`}
             key={day}
-            onClick={() => toggleEventsListModal(dayCopy)}
+            // onClick={() => toggleEventsListModal(dayCopy)}
+            onClick={(e) => {
+              eventModal(e, dayCopy, 'create');
+            }}
           >
             <div className='cell-container'>
-              <div className='number'>{formattedDate}</div>
+              <div
+                className='number'
+                onClick={(e) => toggleEventsListModal(e, dayCopy)}
+              >
+                {formattedDate}
+              </div>
               {isSameMonth(day, monthStart) ? (
                 <div>
                   <div>
@@ -162,7 +170,7 @@ const Calendar = (props) => {
                         </div>
                       ))}
                   </div>
-                  <div className='btn-position'>
+                  {/* <div className='btn-position'>
                     <Button
                       className='btn-circle'
                       variant=''
@@ -172,7 +180,7 @@ const Calendar = (props) => {
                     >
                       <MdAdd />
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 ''
@@ -225,7 +233,8 @@ const Calendar = (props) => {
     setCurrentMonth(now);
   };
 
-  const toggleEventsListModal = (date) => {
+  const toggleEventsListModal = (e, date) => {
+    e && e.stopPropagation();
     setShowEventsListModal(!showEventsListModal);
     setEventDay(date);
   };
