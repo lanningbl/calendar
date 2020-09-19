@@ -1,0 +1,28 @@
+@import 'variables.scss';
+@import 'mixin.scss';
+
+.day-of-week {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+}
+
+.day-of-week__cell {
+  border-right: 1px solid lighten($primary-color, 25%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-transform: uppercase;
+  width: (100% / 7);
+
+  &:last-child {
+    border-right: transparent;
+  }
+}
+
+.day-of-week__day {
+  color: $secondary-color;
+  font-size: 11px;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
