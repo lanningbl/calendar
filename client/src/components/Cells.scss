@@ -4,7 +4,6 @@
 .cell-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .cells__row {
@@ -21,20 +20,17 @@
 
 .cell {
   box-sizing: border-box;
-
   width: (100% / 7);
   border-right: 1px solid lighten($primary-color, 25%);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
 
-  &:hover {
-    background: darken($primary-color, 1%);
-    transition: 0.5s ease-out;
-  }
+  // &:hover {
+  //   background: darken($primary-color, 1%);
+  //   transition: 0.5s ease-out;
+  // }
 
   &:last-child {
     border-right: none;
+    overflow: hidden;
   }
 }
 
@@ -53,25 +49,69 @@
 .disabled {
   color: $primary-color;
   opacity: 0.5;
-  pointer-events: none;
 }
 
 .event-info {
-  font-family: open-sans;
-  font-size: 13px;
-  background-color: lighten($primary-color, 5%);
+  font-family: open-sans-bold;
+  font-size: 12px;
+  background-color: $event-color;
   color: $secondary-color;
   cursor: pointer;
-  border-radius: 3px;
-  margin: 2px;
-  padding-left: 3px;
-  padding-right: 3px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 22px;
+  margin-bottom: 2px;
+  padding: 0 8px;
   white-space: nowrap;
+  // width: calc(100vw / 7 - 2%);
   overflow: hidden;
+  position: relative;
 
   &:hover {
-    background-color: rgb(121, 141, 160);
+    background-color: darken($event-color, 5%);
   }
+}
+
+.push-down {
+  height: 24px;
+}
+
+$event-right-padding: 5px;
+.w1of7 {
+  width: calc(100vw / 7 - #{$event-right-padding});
+}
+
+.w2of7 {
+  width: calc((100vw / 7 * 2) - #{$event-right-padding});
+}
+
+.w3of7 {
+  width: calc((100vw / 7 * 3) - #{$event-right-padding});
+}
+
+.w4of7 {
+  width: calc((100vw / 7 * 4) - #{$event-right-padding});
+}
+
+.w5of7 {
+  width: calc((100vw / 7 * 5) - #{$event-right-padding});
+}
+
+.w6of7 {
+  width: calc((100vw / 7 * 6) - #{$event-right-padding});
+}
+
+.w7of7 {
+  width: calc((100vw / 7 * 7) - #{$event-right-padding});
+}
+
+.number-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .number {
@@ -80,16 +120,14 @@
   color: $secondary-color;
   width: 24px;
   height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   margin-top: 3px;
   line-height: 24px;
   letter-spacing: 0.3px;
+  text-align: center;
+  border-radius: 50%;
 
   &:hover {
     background-color: lighten($primary-color, 1%);
-    border-radius: 50%;
   }
 }

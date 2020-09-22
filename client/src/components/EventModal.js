@@ -74,7 +74,7 @@ const EventModal = (props) => {
           .then(handleClose());
       } else {
         axios
-          .post('/events/update' + props.event._id, event)
+          .post('/events/update/' + props.event._id, event)
           .then((res) => console.log(res.data))
           .then(props.fetchEvents)
           .then(handleClose);
@@ -89,7 +89,7 @@ const EventModal = (props) => {
 
   const handleDelete = () => {
     axios
-      .delete('events/' + props.event._id)
+      .delete('/events/' + props.event._id)
       .then((response) => {
         console.log(response.data);
       })
